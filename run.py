@@ -29,4 +29,112 @@ def display_accounts():
 
 def password_generator():
     new_pass = Credentials.generate_password()
-    return new_pass        
+    return new_pass
+def main():
+    print("The password Locker")
+    print('\n')
+
+    while True:
+        print("Do you want to Login(L) or Signup(S)? L/S?..To Quit press (Q) ")
+
+        code = input().lower().strip()
+        if code == "q":
+            print("Bye...0_0")
+            break
+        elif code == 's':
+            print("NEW USER")
+            print('\n')
+
+            username = input("Username: ")
+            password = getpass.getpass("Password: ")
+
+            save_users(create_user(username, password))
+            print('\n')
+
+            print(f"Signup successful new user {username} has been created")
+            print('.'*60)
+
+        elif code == 'l':
+            print("Fill in your credentials to login")
+            print('\n')
+
+            user_name = input("Username: ")
+            password = getpass.getpass("Password: ")
+            log_in = check_user_exists(user_name,password)
+            if log_in == True:
+                print(f"Welcome back {user_name},how can i help you?")
+                while True:
+                    print('.'*30)
+                    print("Create account - ca- ,Display accounts -da - ,Press - q - to go to the top Menu ")
+
+                    code = input().lower().strip()
+                    print('.'*30)
+
+                    if code == "q":
+                        print("Bye...0_0")
+                        break
+
+                    elif code == "ca":
+                        print("Creating New Account Credentials")
+                        print('\n')
+                        account_name = input("Account Name: ")
+                        print('.'*30)
+                        while True:
+                            print("Generate new account password -np- , Enter existing password - ep -")
+                            code = input().strip()
+
+                            if code == "ep":
+                                account_password = input("Account Password: ")
+                                # save_credential(create_credential(account_name,account_password))
+
+                                # print('\n')
+                                # print(f"Existing credential are as follows: \n Account Name:  {account_name} \n password: {account_password} ")
+                                # print('\n')
+                                break
+
+                            elif code =="np":
+                                account_password = password_generator()
+                                break
+
+                            else:
+                                print('.'*30)
+                                print("please enter valid shortcode ")
+                                break
+                        save_credential(create_credential(account_name,account_password))
+
+                        print('\n')
+                        print(f"New account credential created: \n Account Name:  {account_name} \n password: {account_password} ")
+                        print('\n')
+
+
+                    elif code == "da":
+                        if display_accounts():
+                            print("Here is a list of your accounts credentials")
+                            print('\n')
+
+                            for account in display_accounts():
+                                print(f" \nAccount Name: {account.account_name}  \nAccount Password: {account_password}")
+                                print('\n')
+
+                        else:
+                            print('\n')
+                            print("No saved accounts credentials yet")
+                            print('\n')
+
+            else:
+                print('\n')
+                print("User NOT FOUND!!. Please Signup")
+                print('.'*60)
+        else:
+            print("INVALID ENTRY. PLEASE ENTER VALID SHORT CODES")
+            print('.'*60)
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    main()
