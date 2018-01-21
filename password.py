@@ -25,3 +25,25 @@ class User:
         for user in cls.user_list:
             if user.user_name == name:
                 return user
+
+
+class Credentials:
+
+    '''
+    instanciate credential
+    '''
+
+    global user_list
+    credential_list =[]
+
+    def __init__(self, account_name,account_password):
+        self.account_name = account_name
+        self.account_password = account_password
+
+    def save_account(self):
+
+        """
+        save to credential_list
+        """
+        Credentials.credential_list.append(self)
+                
