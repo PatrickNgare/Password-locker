@@ -46,4 +46,30 @@ class Credentials:
         save to credential_list
         """
         Credentials.credential_list.append(self)
-                
+
+@classmethod
+    def user_exist(cls, user_name,password):
+        '''
+        check whether current user exist and login
+        '''
+        for user in User.user_list:
+            if user.user_name == user_name and user.password == password:
+                return True
+        return False
+
+
+    @classmethod
+    def display_accounts(cls):
+
+        """
+        display items in the credential list
+        """
+        return cls.credential_list
+
+    def generate_password():
+        chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@!#$%&*'
+        password = ""
+        for c in range(10):
+            password +=random.choice(chars)
+
+        return password
