@@ -4,7 +4,7 @@ from password import User, Credentials
 
 def create_user(user_name, password):
     new_user = User(user_name, password)
-    return new_use
+    return new_user
 def save_users(user):
     user.save_user()
 
