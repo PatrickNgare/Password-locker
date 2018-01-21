@@ -47,7 +47,7 @@ class Credentials:
         """
         Credentials.credential_list.append(self)
 
-@classmethod
+    @classmethod
     def user_exist(cls, user_name,password):
         '''
         check whether current user exist and login

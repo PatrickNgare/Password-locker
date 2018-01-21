@@ -7,14 +7,14 @@ class TestUser(unittest.TestCase):
         '''
         test setup method
         '''
-        self.new_user = User("Patrick", "Patrick1234")
+        self.new_user = User("patel", "patel")
 
     def test_init(self):
         '''
         test initialization
         '''
-        self.assertEqual(self.new_user.user_name, "Patrick")
-        self.assertEqual(self.new_user.password, "Patrick1234")
+        self.assertEqual(self.new_user.user_name, "patel")
+        self.assertEqual(self.new_user.password, "patel")
 
     def test_save_user(self):
         '''
@@ -31,7 +31,7 @@ class TestUser(unittest.TestCase):
         '''
         self.new_user.save_user()
 
-        test_user = User("patel", "678910")
+        test_user = User("patel", "patel")
         test_user.save_user()
 
         self.assertEqual(len(User.user_list), 2)
@@ -42,7 +42,7 @@ class TestUser(unittest.TestCase):
         '''
         self.new_user.save_user()
 
-        test_user = User("patel", "678910")
+        test_user = User("patel", "patel")
         test_user.save_user()
 
         user_found = User.find_by_name("patel")
