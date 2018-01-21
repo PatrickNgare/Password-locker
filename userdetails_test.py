@@ -1,5 +1,5 @@
 import unittest
-from password import User, Credentials
+from userdetails import User, Credentials
 
 
 class TestUser(unittest.TestCase):

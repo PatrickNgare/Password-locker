@@ -1,5 +1,5 @@
 import getpass
-from password import User, Credentials
+from userdetails import User, Credentials
 
 
 def create_user(user_name, password):
