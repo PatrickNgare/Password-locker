@@ -8,7 +8,13 @@ This application acts a storage for password for different accounts users have. 
 
 ## Setup/Installation Requirements
 Clone the repository
+
+Ensure you have python3.6 installed in your computer.
+
 install pyperclip $ python3.6 -m pip install pyperclip
+
+From the terminal navigate to the cloned project folder.
+
 open terminal and go to the project folder, run $ ./run.py
 
 ## Known Bugs
