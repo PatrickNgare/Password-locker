@@ -20,4 +20,13 @@ def check_user_exists(user_name, password):
 def create_credential(account_name,account_password):
     new_credential = Credentials(account_name,account_password)
 
-    return new_credential    
+    return new_credential
+def save_credential(credential):
+    credential.save_account()
+
+def display_accounts():
+    return Credentials.display_accounts()
+
+def password_generator():
+    new_pass = Credentials.generate_password()
+    return new_pass        
